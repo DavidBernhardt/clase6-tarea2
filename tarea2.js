@@ -5,7 +5,8 @@ $botonAgregar.onclick = function (){
     totalIntegrantes++;
     agregarIntegrante(totalIntegrantes);
 
-    $botonRemover.className = "show";
+    mostrar ("#boton-remover");
+    ocultar("#calculos");
     return false;
 }
 
@@ -17,6 +18,7 @@ $botonRemover.onclick = function(){
     if (totalIntegrantes == 1){
         $botonRemover.className = "hidden";
     }
+    ocultar("#calculos");
     return false;
 }
 
@@ -36,7 +38,7 @@ $botonCalcular.onclick = function(){
     $menorSalario.innerText = `El menor salario anual es ${menor($salarioIntegrantes)}`;
     $promedio.innerText = `El promedio salarial es de ${promedio($salarioIntegrantes)}`;
 
-    document.querySelector("#calculos").display = "content";
+    mostrar("#calculos");
     return false;
 }
 
@@ -66,9 +68,9 @@ function removerIntegrante(){
 
 function obtenerSalarios(){
     let $salarioIntegrantes = [];
-    const $inputSalarioIntegrantes = document.querySelectorAll(".integrante");
+    const $inputSalarioIntegrantes = document.querySelectorAll(".integrante input");
     for (let i=0; i<$inputSalarioIntegrantes.length; i++){
-        if ($inputSalarioIntegrantes[i] != 0){
+        if (Number($inputSalarioIntegrantes[i].value) != 0){
             $salarioIntegrantes.push (Number($inputSalarioIntegrantes[i].value));
         }
     }
@@ -103,4 +105,10 @@ function promedio(salarios){
     return (promedio / salarios.length);
 }
 
+function mostrar(elemento){
+    document.querySelector(elemento).className = "show";
+}
 
+function ocultar(elemento){
+    document.querySelector(elemento).className = "hidden";
+}
