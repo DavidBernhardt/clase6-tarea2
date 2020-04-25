@@ -43,7 +43,7 @@ $botonCalcular.onclick = function(){
 function agregarIntegrante(n){
     $salarioIntegrantes = document.querySelector("#salario-integrantes");
     $div = document.createElement("div");
-    $input.className = "integrante";
+    $div.className = "integrante";
     $label = document.createElement("label");
     $label.innerText = `Integrante ${n}: `;
     $input = document.createElement("input");
