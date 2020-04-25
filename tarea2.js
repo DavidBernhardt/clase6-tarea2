@@ -46,9 +46,13 @@ function agregarIntegrante(n){
     $salarioIntegrantes = document.querySelector("#salario-integrantes");
     $div = document.createElement("div");
     $div.className = "integrante";
+    
     $label = document.createElement("label");
+    $label.for = "salario-integrante";
     $label.innerText = `Integrante ${n}: `;
+
     $input = document.createElement("input");
+    $input.id = "salario-integrante";
     $input.type = "number";
     $input.value = "0";
 
